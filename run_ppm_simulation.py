@@ -77,6 +77,18 @@ def perform_traceback(attacker_count, x_rate, p, trials=10):
                         edge_tree.add((pkt.start, pkt.end, pkt.distance)) # store edge as (start, end, distance) in edge tree
         
         ### evaluate accuracy for node sampling
+        
+        # # node reconstruction
+        # sorted_nodes = [n for n, c in sorted(node_table.items(), key=lambda item: item[1], reverse=True)]
+        # top_k = set(sorted_nodes[:len(b1_path)-1])
+        # actual = set(b1_path[:-1])
+        # avg_node_acc += (len(actual.intersection(top_k)) / len(actual)) * 100
+
+        # # edge Reconstruction
+        # found = sum(1 for e in attacker_1_edges if e in edge_tree)
+        # avg_edge_acc += (found / len(attacker_1_edges)) * 100
+
+
         # convert frequency table into list of (router_id, frequency) and sort by frequency
         node_list = []
         for r_id, count in node_table.items():
